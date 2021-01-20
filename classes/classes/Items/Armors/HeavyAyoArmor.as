@@ -48,7 +48,7 @@ package classes.Items.Armors
 			if (game.player.str >= 40 && game.player.spe >= 40) {
 				return true;
 			}
-			outputText("You aren't strong and agile enough to wear this armor!  Unless you likes to move slower than snail and hit weaked than wet noddle!  ");
+			outputText("You aren't strong and agile enough to wear this armor, unless you want to move slower than a snail and hit weaker than a wet noodle!  ");
 			return false;
 		}
 	}
