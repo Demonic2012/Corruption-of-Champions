@@ -1,0 +1,31 @@
+package classes.Items.Armors 
+{
+import classes.Items.Armor;
+import classes.PerkLib;
+import classes.Player;
+import classes.StatusEffects;
+	
+	public class DriderSheerRobes extends Armor
+	{
+
+		public function DriderSheerRobes ()
+		{
+			super("Dr.Robes","Dr.Robes","Drider Sheer Robes","a very thin silk garment, cool to the touch",3,40,6600," This extremely thin nightgown/robe is white, with a few little black spiders decoratively woven onto it. The garment sparkles in low-light situations, however when lit up, the garment becomes sheer, exposing your undergarments and figure to the world. The garment seems to be highly resistant to hostile magics, and you can feel your own ambient mana being fortified by the odd, hooded robe","Light",PerkLib.WizardsEndurance,60,0,0,0);
+		}
+
+		override public function playerEquip():Armor {
+			while (game.player.findPerk(PerkLib.DriderSheerRobes) >= 0) game.player.removePerk(DriderSheerRobes);
+			game.player.createPerk(PerkLib.DriderSheerRobes,0,0,0,0);
+			while (game.player.findPerk(PerkLib.WizardsEndurance,) >= 0) game.player.removePerk(PerkLib.WizardsEndurance,);
+			game.player.createPerk(PerkLib.WizardsEndurance,60,0,0,0);
+			return super.playerEquip();
+		}
+
+		override public function playerRemove():Armor {
+			while (game.player.findPerk(PerkLib.SpiderWeaveRobes) >= 0) game.player.removePerk(PerkLib.DriderSheerRobes);
+			while (game.player.findPerk(PerkLib.PerkLib.WizardsEndurance) >= 0) game.player.removePerk(PerkLib.WizardsEndurance);
+			return super.playerRemove();
+		}
+
+	}
+}
